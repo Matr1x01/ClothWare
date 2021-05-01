@@ -10,9 +10,12 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
+    double totalCost = 0;
     List<Item> items = MyApp.cart.getItems();
+    Map<dynamic, dynamic> itemCount = Map.from(MyApp.cart.getItemCounts());
     List<Container> cartItems = [];
     for (var i = 0; i < items.length; i++) {
+      totalCost += (items[i].price * itemCount[items[i].id.toString()]);
       cartItems.add(
         new Container(
           alignment: Alignment.center,
@@ -24,11 +27,16 @@ class _CartPageState extends State<CartPage> {
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             title: Text(
-              items[i].name,
+              items[i].name +
+                  '(x' +
+                  itemCount[items[i].id.toString()].toString() +
+                  ')',
               style: TextStyle(fontSize: 25),
             ),
-            subtitle: Text(items[i].price.toString() + " Tk"),
-            trailing: FlatButton(
+            subtitle: Text((items[i].price * itemCount[items[i].id.toString()])
+                    .toString() +
+                " Tk"),
+            trailing: TextButton(
               onPressed: () {
                 setState(() {
                   MyApp.cart.removeAt(i);
@@ -54,7 +62,7 @@ class _CartPageState extends State<CartPage> {
             textAlign: TextAlign.start,
           ),
           Text(
-            MyApp.cart.totalCost().toString() + " Tk",
+            totalCost.toString() + " Tk",
             style: TextStyle(fontSize: 25),
             textAlign: TextAlign.end,
           ),

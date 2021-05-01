@@ -1,7 +1,6 @@
 import 'package:ClothWare/models/Item.dart';
 import 'package:flutter/material.dart';
 import 'ItemsBox.dart';
-import 'package:ClothWare/models/Item.dart';
 
 class ColumnContainer extends StatelessWidget {
   final double boxSize = 150;

@@ -3,9 +3,17 @@ import 'Item.dart';
 
 class Cart {
   Queue cart = new Queue();
-
-  void add(Item item) {
+  var itemCount = {};
+  void add(Item item, int count) {
+    cart.removeWhere((element) {
+      if (element.id == item.id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
     cart.add(item);
+    itemCount[item.id.toString()] = count;
   }
 
   void remove(int id) {
@@ -29,16 +37,16 @@ class Cart {
     });
   }
 
-  int length() {
-    return cart.length;
+  Map<dynamic, dynamic> getItemCounts() {
+    return itemCount;
   }
 
-  double totalCost() {
-    double sum = 0;
-    for (var i = 0; i < cart.length; i++) {
-      sum += cart.elementAt(i).price;
-    }
-    return sum;
+  int getItemCount(int id) {
+    return itemCount[id.toString()];
+  }
+
+  int length() {
+    return cart.length;
   }
 
   List<Item> getItems() {

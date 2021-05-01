@@ -23,17 +23,17 @@ class MyAppState extends State<MyApp> {
   ThemeData lightTheme = ThemeData(
     primaryColor: Colors.lightBlue,
     backgroundColor: Colors.white,
-    textTheme: TextTheme(body2: TextStyle(color: Colors.black)),
+    textTheme: TextTheme(bodyText1: TextStyle(color: Colors.black)),
   );
   ThemeData darkTheme = ThemeData(
     primaryColor: Colors.grey[900],
     backgroundColor: Colors.grey[700],
-    textTheme: TextTheme(body2: TextStyle(color: Colors.white)),
+    textTheme: TextTheme(bodyText1: TextStyle(color: Colors.white)),
   );
   ThemeData theme = ThemeData(
     primaryColor: Colors.lightBlue,
     backgroundColor: Colors.white,
-    textTheme: TextTheme(body2: TextStyle(color: Colors.black)),
+    textTheme: TextTheme(bodyText1: TextStyle(color: Colors.black)),
   );
   Color appBarColor;
   bool _switchValue = false;
@@ -63,7 +63,7 @@ class MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: Text("ClothWare"),
             backgroundColor: appBarColor,
-            leading: FlatButton(
+            leading: TextButton(
               onPressed: _openDrawer,
               child: Icon(Icons.menu),
             ),

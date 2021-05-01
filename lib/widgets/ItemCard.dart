@@ -4,11 +4,11 @@ import 'package:ClothWare/models/Item.dart';
 
 class ItemCard extends StatelessWidget {
   final double boxSize;
-  Item item;
+  final Item item;
   ItemCard(this.boxSize, this.item);
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       onPressed: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => ItemPage(item)));

@@ -4,5 +4,11 @@ class Item {
   double price;
   String decription;
   String type;
-  Item(this.id, this.type, this.name, this.price, this.decription);
+  Item(
+    this.id,
+    this.type,
+    this.name,
+    this.price,
+    this.decription,
+  );
 }
