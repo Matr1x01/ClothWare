@@ -35,7 +35,11 @@ class _CartPageState extends State<CartPage> {
             ),
             subtitle: Text((items[i].price * itemCount[items[i].id.toString()])
                     .toString() +
-                " Tk"),
+                "(" +
+                items[i].price.toString() +
+                "x" +
+                itemCount[items[i].id.toString()].toString() +
+                ") Tk"),
             trailing: TextButton(
               onPressed: () {
                 setState(() {

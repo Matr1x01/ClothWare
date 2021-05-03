@@ -110,7 +110,11 @@ class _ItemPageState extends State<ItemPage> {
                             MaterialStateProperty.all<Color>(Colors.blueAccent),
                       ),
                       onPressed: () {
-                        MyApp.cart.add(widget.item, count);
+                        if (count != 0) {
+                          MyApp.cart.add(widget.item, count);
+                        } else {
+                          MyApp.cart.remove(widget.item.id);
+                        }
                       },
                       // child: Icon(Icons.add),
                       child: Text("ADD TO CART"),
